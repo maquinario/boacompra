@@ -1,0 +1,143 @@
+@import 'mixins';
+@import 'neat/neat';
+@import 'compass';
+@import 'compass/css3';
+
+
+body,html{
+  overflow-x: hidden;
+}
+
+body{
+  font-family: $font;
+  font-weight: 200;
+  font-size: 17px;
+  margin: 0;
+  color: $black;
+  overflow-x: hidden;
+
+  @include grid-media($neat-grid-sm){
+    font-size: 15px;
+    padding-top: 150px;
+  }
+}
+
+figure{
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.container{
+  @include grid-container;
+}
+
+header{
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.logo{
+  @include grid-column(2);
+  a{
+    @include imgreplace;
+    width: 100%;
+    background: url(img/logo.svg) top left no-repeat;
+    background-size: contain;
+    height: 95px;
+  }
+}
+
+.menus{
+  @include grid-column(10);
+  text-align: right;
+}
+
+.menu{
+  margin: 0;
+  padding: 0;
+}
+
+.menu-navegacao-container,
+.menu-top-menu-container{
+  & > .menu{
+    & > .menu-item{
+      display: inline-block;
+
+      ul{
+        display: none;
+      }
+    }
+  }
+}
+
+.menu-item{
+  font-weight: $bold;
+  font-family: $display;
+  text-transform: uppercase;
+  margin-right: 40px;
+  letter-spacing: 0.1em;
+
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.topMenu{
+  padding: 10px 0;
+  position: relative;
+
+  .menu-item{
+    color: $green;
+    font-size: 0.9em;
+  }
+
+  &:after{
+    content: '';
+    display: bottom;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: linear-gradient(to right, #fff, $lightGray);
+    left: 0;
+    top: 0;
+  }
+}
+
+.navigation{
+  padding: 30px 0;
+}
+
+.menu-item-has-children a{
+  &:after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-bottom: solid 1px #000;
+    border-right: solid 1px #000;
+    display: inline-block;
+    margin-left: 10px;
+    @include transform(rotate(45deg) translateY(-5px));
+  }
+}
+
+.cta{
+  background: url(img/cta.jpg) center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+}
+
+.cta-button{
+  @include bigButton;
+  width: 350px;
+  margin: 0 auto;
+  display: table;
+}

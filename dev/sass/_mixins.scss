@@ -1,0 +1,119 @@
+@import 'compass';
+@import 'compass/css3';
+
+// Colors
+$orange: #E35205;
+$green: #1D6960;
+$yellow: #EBBC4E;
+$beige: #DFD1A7;
+$brown: #BD9A7A;
+$black: #000;
+$white: #fff;
+$lightGray: #F2F2F2;
+
+// Font
+@include font-face("Uol",
+  font-files('uoldisplay_bold_1-webfont.woff','uoldisplay_bold_1-webfont.woff2')
+);
+$bold: 500;
+$font: 'ebony', sans-serif;
+$display: 'Uol', serif;
+
+
+// Breakpoints
+$neat-grid-lg: (
+  columns: 14,
+  gutter: 30px,
+  media: 1200px
+);
+
+$neat-grid-xl: (
+  columns: 14,
+  gutter: 30px,
+  media: 1600px
+);
+
+$neat-grid: (
+  columns: 12,
+  gutter: 30px,
+  media: "(min-width: 992px) and (max-width: 1199px)"
+);
+
+$neat-grid-sm: (
+  columns: 8,
+  gutter: 30px,
+  media: "(min-width: 720px) and (max-width: 991px)"
+);
+
+$neat-grid-xs: (
+  columns: 4,
+  gutter: 30px,
+  media: "(max-width: 719px)"
+);
+
+// Mixins
+@mixin imgreplace{
+  text-indent: -9000px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  display: inline-block;
+}
+
+@mixin clearfix{
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin paragraph($color:$black){
+  font: 200 1em/1.5em $font;
+  color: $color;
+
+  &:first-child, p:first-child{
+    margin-top: 0;
+  }
+}
+
+@mixin title($color:#000){
+  color: $color;
+  font: 1.5em $display;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+@mixin link-reset{
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@mixin dash{
+  &:after{
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: $beige;
+    display: block;
+    margin: 30px 0 0;
+  }
+}
+
+@mixin bigButton($color:$green){
+  padding: 20px 40px;
+  font: $bold 1em $display;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  background: $green;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}

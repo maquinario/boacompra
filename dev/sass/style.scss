@@ -1,0 +1,28 @@
+/*!
+  Theme Name: BoaCompra
+  Author: Bruno Scodeler
+  Author URI: http://estudiomaquinario.com.br/
+  Description: Site institucional da Be Bella
+  Version: 1.0
+*/
+
+/**
+  * This stylesheet was built using the CSS Framework Compass and Bourbon Neat
+  * Documentation available at http://compass-style.org/ & http://neat.bourbon.io/
+**/
+
+@import 'neat/neat';
+@import 'mixins';
+
+*{
+  box-sizing: border-box;
+}
+
+h1{
+  font-family: 'Uol';
+}
+
+// Load files
+
+@import 'structure';
+@import 'home';
